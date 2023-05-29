@@ -122,7 +122,7 @@ const HomePage: React.FC<Props> = ({pageName, visible})=>{
             const passName = ""
 
             // Pass temp time
-            setJsonData(JSON.parse(await invoke("temp_time_json", { 
+            setJsonData(JSON.parse(await invoke("add_temp_time_json", { 
                 passName,
                 passHours,
                 passMinutes,
@@ -211,9 +211,8 @@ const HomePage: React.FC<Props> = ({pageName, visible})=>{
 
     // Delete Item
     async function deleteItem(e:any){
-        const renderName = e.target.getAttribute('name')
-        setJsonData(JSON.parse(await invoke("delete_time_json", {renderName})))
-        console.log(renderName)
+        const passName = e.target.getAttribute('name')
+        setJsonData(JSON.parse(await invoke("delete_time_json", {passName})))
 
         // Set render time
         setRenderTime(await invoke("calculate_time"))
@@ -223,28 +222,23 @@ const HomePage: React.FC<Props> = ({pageName, visible})=>{
     }
 
     // Check if is text pressed in the text field
-    const handleKeyDown = (event:any) => {
-        // Verifica se a tecla pressionada não é um número ou a tecla "Backspace"
+    const handleKeyDown = (event: any) => {
+        // Check if it's a number, "Backspace", Tab, or Shift+Tab
+        const allowedKeys = ["Backspace", "Tab", "ArrowLeft", "ArrowRight"];
         if (
-          (event.keyCode < 48 || event.keyCode > 57) && // Teclas de números do teclado principal
-          (event.keyCode < 96 || event.keyCode > 105) && // Teclas de números do teclado numérico
-          event.keyCode !== 8 // Tecla "Backspace"
+            !(/^\d$/.test(event.key)) && // Check if it's not a number
+            !allowedKeys.includes(event.key) // Check if it's not one of the allowed keys
         ) {
-          event.preventDefault(); // Impede a entrada de texto
+            event.preventDefault(); // Prevent text input
         }
-    };
+    }
 
     useEffect(() => {
         // FORM VALIDATIONS
-        var regex = new RegExp("^[a-zA-Z ]+$");
         // Hours Validations
         const hours = inputHours.current;
         if(hours){
-            hours.onkeydown = function(e) { 
-                if((e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E')
-                || (e.ctrlKey && e.key === 'v')) { return false}
-                handleKeyDown(e)                
-            }
+            hours.onkeydown = function(e) { handleKeyDown(e) }
             hours.onkeyup = () => {
                 let valor = parseInt(hours.value, 10);
                 if (valor > 99) setInputMinutesValue('9')
@@ -253,11 +247,7 @@ const HomePage: React.FC<Props> = ({pageName, visible})=>{
         // Minutes Validations
         const minutes = inputMinutes.current;
         if(minutes){
-            minutes.onkeydown = function(e) {
-                if((e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E')
-                || (e.ctrlKey && e.key === 'v')) { return false; }
-                handleKeyDown(e)  
-            }
+            minutes.onkeydown = function(e) { handleKeyDown(e) }
             minutes.onkeyup = () => {
                 let valor = parseInt(minutes.value, 10);
                 if (valor > 59) setInputMinutesValue('59')
@@ -266,11 +256,7 @@ const HomePage: React.FC<Props> = ({pageName, visible})=>{
         // Seconds Validations
         const seconds = inputSeconds.current;
         if(seconds){
-            seconds.onkeydown = function(e) { 
-                if((e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E')
-                || (e.ctrlKey && e.key === 'v')) { return false; }
-                handleKeyDown(e)
-            }
+            seconds.onkeydown = function(e) { handleKeyDown(e) }
             seconds.onkeyup = () => {
                 let valor = parseInt(seconds.value, 10);
                 if (valor > 59) setInputSecondsValue('59')
@@ -279,11 +265,7 @@ const HomePage: React.FC<Props> = ({pageName, visible})=>{
         // Frames Validations
         const frames = inputFrames.current;
         if(frames){
-            frames.onkeydown = function(e) {
-                if((e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E')
-                || (e.ctrlKey && e.key === 'v')) { return false; }
-                handleKeyDown(e)
-            }
+            frames.onkeydown = function(e) { handleKeyDown(e) }
             frames.onkeyup = () => {
                 let valor = parseInt(frames.value, 10);
                 if (isNaN(valor) || valor < 1) setInputFramesValue('1')
@@ -293,8 +275,6 @@ const HomePage: React.FC<Props> = ({pageName, visible})=>{
         const machines = inputMachines.current;
         if(machines){
             machines.onkeydown = function(e) {
-                if((e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E')
-                || (e.ctrlKey && e.key === 'v')) { return false; }
                 handleKeyDown(e)
             }
             machines.onkeyup = () => {
