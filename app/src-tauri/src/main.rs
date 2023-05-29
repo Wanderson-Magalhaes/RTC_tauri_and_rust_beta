@@ -8,53 +8,10 @@ use window_shadows::set_shadow;
 use std::{time::Duration};
 use chrono::{Local, Duration as TimeDuration, NaiveDateTime, TimeZone, Datelike, Timelike};
 use serde::{Deserialize, Serialize};
-use std::sync::{Arc, Mutex};
-use once_cell::sync::Lazy;
 
-// Definir a estrutura que encapsula a variável global mutável JSON
-struct GlobalJson {
-    json: Mutex<String>
-}
-
-impl GlobalJson {
-    // Função para obter o valor JSON atual
-    fn get_json(&self) -> String {
-        let guard = self.json.lock().unwrap();
-        guard.clone()
-    }
-
-    // Função para definir um novo valor JSON
-    fn set_json(&self, new_json: String) {
-        let mut guard = self.json.lock().unwrap();
-        *guard = new_json;
-    }
-
-    // Função para retornar o valor JSON padrão
-    fn default_value() -> String {
-        String::from(r#"
-            {
-                "renders": [
-                    {
-                        "name": "temp",
-                        "hours": 0,
-                        "minutes": 0,
-                        "seconds": 0,
-                        "frames": 1,
-                        "machines": 1
-                    }
-                ]
-            }
-        "#)
-    }
-}
-
-// Variável global estática para armazenar a instância de GlobalJson
-static GLOBAL_JSON: Lazy<Arc<GlobalJson>> = Lazy::new(|| {
-    Arc::new(GlobalJson {
-        json: Mutex::new(GlobalJson::default_value()),
-    })
-});
-
+// Import App Modules
+mod app_modules;
+use app_modules::global_json::{GLOBAL_JSON, GlobalJson};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct RenderTime {
@@ -118,7 +75,7 @@ fn temp_time_json(
         renders.push(json!(new_render));
 
         // Deserialize to String
-        global_json.set_json(serde_json::to_string_pretty(&times).unwrap()); 
+        global_json.set_json(serde_json::to_string_pretty(&times).unwrap());
 
         // Return json with new time added
         return global_json.get_json()
