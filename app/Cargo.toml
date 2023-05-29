@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "src-tauri/",
+]
+
+[profile.release]
+strip = true
+opt-level = "z"
+codegen-units = 1
+panic = "abort"
