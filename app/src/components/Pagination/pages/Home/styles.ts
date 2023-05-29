@@ -114,14 +114,14 @@ export const Container = styled.div`
     }
     // Alert box
     .alert-box {
-        font-size: 0.8em;
+        font-size: 0.85em;
         padding: 5px !important;
         border-radius: 8px;
         color: ${props => props.theme.colors.color};
-        border: 2px solid ${props => props.theme.colors.appColorRed};
-        background-color: ${props => props.theme.colors.background};
+        border: 2px solid ${props => props.theme.colors.appColorOrange};
+        background-color: ${props => props.theme.colors.background_2};
     }
     .alert-box b {
-        color: ${props => props.theme.colors.appColorRed};
+        color: ${props => props.theme.colors.appColorOrange};
     }
 `

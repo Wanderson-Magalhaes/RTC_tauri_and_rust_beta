@@ -13,7 +13,7 @@ export class Settings {
     /** Default app name */
     static appName: string = 'Render Time Calculator'
     /** Default version */
-    static appVersion: string = 'v3.0.0 Alpha'
+    static appVersion: string = 'v3.0.0 Beta'
     /** Choose the application's default theme before it is modified by the user */
     static appDefaultTheme: any = dark
     /** Choose your app's home page when running */

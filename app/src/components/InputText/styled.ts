@@ -45,7 +45,7 @@ export const Container = styled.div<Props>`
         flex: 1;
     }
     & .alert {
-        border: 2px solid ${props => props.theme.colors.appColorYellow} !important;
+        border: 2px solid ${props => props.theme.colors.appColorOrange} !important;
     }
     & .error {
         border: 2px solid ${props => props.theme.colors.appColorRed} !important;
@@ -124,6 +124,11 @@ export const Input = styled.input<Props>`
     &:focus {
         background-color: ${props => props.theme.colors.inputBgFocus};
         border: 2px solid ${props => props.theme.colors.accentColor};
+        color: ${props => props.theme.colors.inputColorFocus};
+    }
+    &:focus::placeholder {
+        color: ${props => props.theme.colors.inputColorFocus};
+        opacity: 0.5;
     }
     &:required:focus:invalid {
         border: 2px solid ${props => props.theme.colors.appColorRed};
@@ -132,7 +137,7 @@ export const Input = styled.input<Props>`
         border: 2px solid ${props => props.theme.colors.accentColor};
     }
     &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        opacity: 0.75; /* Firefox */
+        opacity: 0.75;
     }
     & .green-border {
         border: 2px solid ${props => props.theme.colors.appColorGreen} !important;

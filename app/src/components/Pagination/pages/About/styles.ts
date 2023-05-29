@@ -39,7 +39,7 @@ export const Container = styled.div`
         padding: 5px 10px;
         padding-bottom: 7px;
         text-align: right;
-        color: ${props => props.theme.colors.color_2};
+        color: ${props => props.theme.colors.color_1};
         border-right: 1px solid ${props => props.theme.colors.background_5};
         background-color: ${props => props.theme.colors.background_3};
     }

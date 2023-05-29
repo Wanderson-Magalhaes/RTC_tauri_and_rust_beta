@@ -25,6 +25,7 @@ export default {
         buttonBgPressed: '#98C379',
         // Input Colors
         inputColor: '#B1B7C3',
+        inputColorFocus: '#B1B7C3',
         inputBgColor: '#1B1D23',
         inputBgHover: '#1E2027',
         inputBgFocus: '#1B1D23',
@@ -44,6 +45,7 @@ export default {
         appColorGreen: '#98C379',
         appColorRed: '#E06B74',
         appColorYellow: '#E5C07B',
+        appColorOrange: '#D48100',
         appColorPink: '#ff008c',
         appColorPink_1: '#C678DD',
         appBorderColor: '#282C33',

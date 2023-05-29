@@ -2,20 +2,6 @@
   "tauri": {
     "windows": [
       {
-        "fullscreen": false,
-        "resizable": true,
-        "title": "Modern Gui",
-        "width": 500,
-        "height": 720,
-        "minWidth": 500,
-        "minHeight": 680,
-        "visible": false,
-        "center": true,
-        "decorations": true,
-        "titleBarStyle": "Overlay",
-        "hiddenTitle": true
-      },
-      {
         "title": "Loading...",
         "width": 280,
         "height": 280,
@@ -26,7 +12,21 @@
         "center": true,
         "alwaysOnTop": true,
         "resizable": false
-      }
+      },
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "Modern Gui",
+        "width": 540,
+        "height": 720,
+        "minWidth": 540,
+        "minHeight": 680,
+        "visible": false,
+        "center": true,
+        "decorations": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      }      
     ],
     "macOSPrivateApi": true
   }

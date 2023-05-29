@@ -81,10 +81,10 @@ const HomePage: React.FC<Props> = ({pageName, visible})=>{
                     const div_alert = alertBoxExists.current
                     const input = inputName.current
                     div_alert?.classList.remove('hide-app-div')
-                    input?.classList.add('error')
+                    input?.classList.add('alert')
                     setTimeout(()=>{ 
                         div_alert?.classList.add('hide-app-div')
-                        input?.classList.remove('error')
+                        input?.classList.remove('alert')
                     }, 5000)
                 } else {
                     // Add new render time
@@ -107,15 +107,15 @@ const HomePage: React.FC<Props> = ({pageName, visible})=>{
                 const seconds = inputSeconds.current
 
                 div_alert?.classList.remove('hide-app-div')
-                hours?.classList.add('error')
-                setTimeout(()=>{ minutes?.classList.add('error') }, 100)
-                setTimeout(()=>{ seconds?.classList.add('error') }, 200)
+                hours?.classList.add('alert')
+                setTimeout(()=>{ minutes?.classList.add('alert') }, 100)
+                setTimeout(()=>{ seconds?.classList.add('alert') }, 200)
                 setTimeout(()=>{ 
                     div_alert?.classList.add('hide-app-div')
                 }, 5000)
-                setTimeout(()=>{ hours?.classList.remove('error') }, 800)
-                setTimeout(()=>{ minutes?.classList.remove('error') }, 900)
-                setTimeout(()=>{ seconds?.classList.remove('error') }, 1000)        
+                setTimeout(()=>{ hours?.classList.remove('alert') }, 800)
+                setTimeout(()=>{ minutes?.classList.remove('alert') }, 900)
+                setTimeout(()=>{ seconds?.classList.remove('alert') }, 1000)        
             }        
         } else {
             // Reset name to prevent freeze calculator when name field are not empty

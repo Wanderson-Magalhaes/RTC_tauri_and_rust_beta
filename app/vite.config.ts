@@ -31,4 +31,9 @@ export default defineConfig(async () => ({
       },
     },
   },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src/fonts/')
+    }
+  }
 }));

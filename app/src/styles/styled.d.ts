@@ -26,6 +26,7 @@ declare module 'styled-components' {
             buttonBgPressed: string,
             // Input Colors
             inputColor: string,
+            inputColorFocus: string,
             inputBgColor: string,
             inputBgHover: string,
             inputBgFocus: string,
@@ -45,6 +46,7 @@ declare module 'styled-components' {
             appColorGreen: string,
             appColorRed: string,
             appColorYellow: string,
+            appColorOrange: string,
             appColorPink: string,
             appColorPink_1: string,
             appBorderColor: string,

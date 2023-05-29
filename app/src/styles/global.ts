@@ -13,12 +13,14 @@ export default createGlobalStyle`
         outline: none;
     }
     body{
-        font-size: .95em;
+        font-size: 0.84em;
         background-color: transparent;
         color: ${props => props.theme.colors.color};
-        font-family: 'Abel', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
         overflow: hidden;
         -webkit-overflow-scrolling: unset;
+        text-rendering: optimizeLegibility !important;
+        font-weight: 500;
     }
     body:not(input){
         user-select: none;
@@ -27,8 +29,17 @@ export default createGlobalStyle`
         -moz-user-select: none;
         -o-user-select: none;
     }
-    h1 {
-        font-size: 0.85em;
+    // Set Abel font
+    h1, h2, h3, input,
+    .big-number,
+    .percentage {
+        font-family: 'Abel', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !important;
+    }
+    // Set Hx size
+    h1, h2, h3 {
+        font-size: 1em !important;
+        letter-spacing: 0.04em !important;
+        font-weight: bolder !important;
     }
     button {
         border-style: none;
@@ -338,6 +349,7 @@ export default createGlobalStyle`
         overflow: auto;
         padding-left: 10px;
         padding-right: 10px;
+        font-size: 0.9em;
         color: ${props => props.theme.colors.color_2};
     }
     thead tr th:hover {
