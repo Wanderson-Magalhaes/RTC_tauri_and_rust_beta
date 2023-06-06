@@ -4,6 +4,10 @@ This was a practical project to learn how the framework works and also start my 
 
 ![rtc](https://github.com/Wanderson-Magalhaes/MyApp_Avalonia_Test/assets/60605512/e6a6a739-5c74-457c-adfa-387565ac94e4)
 
+### Download:
+If you want to download this compiled project, it is available on Gumroad for Windows, MacOS and Linux (.deb and AppImage):
+https://blender-addons.gumroad.com/l/render_time_calculator
+
 ## Installation
 
 ### Prerequisites
