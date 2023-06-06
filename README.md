@@ -2,7 +2,8 @@
 RTC is an open-source 3D rendering time calculator created with the Tauri framework. The frontend is developed using React (TypeScript) with Vite, while the backend calculations are done in Rust. The project is licensed under the MIT License.
 This was a practical project to learn how the framework works and also start my studies with Rust, so keep in mind that everything in this project can be improved considering that I'm still new to Rust and it was my first time working with React and TypeScript.
 
-![rtc](https://github.com/Wanderson-Magalhaes/MyApp_Avalonia_Test/assets/60605512/e6a6a739-5c74-457c-adfa-387565ac94e4)
+![rtc](https://github.com/Wanderson-Magalhaes/RTC_tauri_and_rust_beta/blob/master/app/rtc.png?raw=true)
+
 
 ### Download:
 If you want to download this compiled project, it is available on Gumroad for Windows, MacOS and Linux (.deb and AppImage):
